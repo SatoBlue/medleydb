@@ -6,6 +6,7 @@ import os
 
 spec = importlib.util.spec_from_file_location('medleydb.__version___', 'medleydb/version.py')
 version = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(version)
 
 package_data = ['resources/*']
 os.chdir('medleydb')
