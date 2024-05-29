@@ -1,9 +1,11 @@
 """medleydb setup script"""
 from setuptools import setup
-import importlib
+import importlib.util
+import sys
 import os
 
-version = importlib.load_source('medleydb.__version___', 'medleydb/version.py')
+spec = importlib.util.spec_from_file_location('medleydb.__version___', 'medleydb/version.py')
+version = importlib.util.module_from_spec(spec)
 
 package_data = ['resources/*']
 os.chdir('medleydb')
